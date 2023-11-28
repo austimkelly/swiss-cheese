@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS Demo</title>
+</head>
+<body>
+    <h1>XSS Demo</h1>
+    <p>This is a vulnerable page that allows XSS.</p>
+
+
+    <!-- Visual demonstration of XSS prevention -->
+    <div style="border: 2px solid #000; padding: 10px; margin-top: 20px;">
+        <h3>Visual Demonstration of XSS Prevention</h3>
+        <p>
+            Original Vulnerable Input:
+            <span style="color: red;">{{ user_input }}</span>
+        </p>
+        <p>
+            Properly Sanitized Input:
+            <span style="color: green;">{{ user_input|safe|replace('\n', '<br>') }}</span>
+        </p>
+    </div>
+
+    <!-- Instructions for the user -->
+    <p>
+        <strong>Example:</strong> Enter <code>Hello World! &lt;script&gt;alert('Cross-Side Scripting!');&lt;/script&gt;</code> into the text box
+        to show an XSS vulnerability as well as a sanitized input.
+    </p>
+
+    <!-- Form for user input -->
+    <form method="post" action="/">
+        <label for="user_input">Enter Your Input:</label>
+        <input type="text" name="user_input" id="user_input" required>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

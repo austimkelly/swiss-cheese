@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Example</title>
+</head>
+<body>
+    <h1>REST API Example</h1>
+    <p>This is a simple example of a REST API with a potential Insecure Direct Object Reference (IDOR) vulnerability.</p>
+
+    <h2>Instructions</h2>
+    <p>Interact with the API by making GET and PUT requests using a tool like <code>curl</code>:</p>
+
+    <h3>GET User Details</h3>
+    <p>Retrieve user details by making a GET request:</p>
+    <pre>
+curl http://127.0.0.1:5000/api/users/1
+    </pre>
+
+    <h3>UPDATE User Details (Vulnerable to IDOR)</h3>
+    <p>Update user details by making a PUT request. Modify the user ID in the URL to demonstrate the IDOR vulnerability:</p>
+    <pre>
+curl -X PUT -H "Content-Type: application/json" -d '{"name": "NewName"}' http://127.0.0.1:5000/api/users/2
+    </pre>
+
+    <p><strong>Note:</strong> This example is for educational purposes only. In a real-world scenario, proper authentication and authorization checks should be implemented to prevent security vulnerabilities.</p>
+</body>
+</html>
