@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Timeout Test</title>
+</head>
+<body>
+    <h1>Session Timeout Test</h1>
+    
+    <p>This page provides instructions for testing the session timeout functionality in the Flask app.</p>
+
+    <h2>Steps to Test Session Timeout:</h2>
+    <ol>
+            <p>Enter a valid username and password (user1/password1):</p>
+            <form action="/login" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <input type="submit" value="Login">
+            </form>
+        </li>
+        <li>After logging in, you will be redirected to the <a href="/dashboard" target="_blank">Dashboard</a>.</li>
+        <li>Refresh the Dashboard page or navigate to another page within the app.</li>
+        <li>Look at the network call to the /dashboard endpoint. Note that in the Cookie header value there is a session token. Get the curl and run it in a terminal. You full access to this users account now without having to know the password.</li>
+    </ol>
+
+    <p>Note: The session timeout is set to 5000 days for demonstration purposes. In a real-world scenario, session timeout values will be much shorter.</p>
+</body>
+</html>
