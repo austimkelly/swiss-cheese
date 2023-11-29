@@ -10,7 +10,7 @@
 
 The code samples here hserve several purposes:
 
-1. For application security and training developers, it's easier to see an exploitable vulnerabity in code that you can actually reproduce. Too many times vulnerabities are too abstract, not reproducible, or reachable thus making alerts largely ignored _en masse_. 
+1. For application security and training developers, it's easier to see an exploitable vulnerabity in code that you can actually reproduce. Too many times vulnerabities are too abstract, not reproducible, or reachable thus making alerts largely ignored _en masse_. Capture the Flag (CTF) exercieses great and get developers into the offensive mind-set, but they don't fully help developers understand the coding errors thus improving code review quality on PRs.
 2. Static Applicaiton Security Testing (SAST) - SAST tools are notoriously noisy, don't demonstrate reachabliity, and can't find more complex interactions. SAST tools definitley have their place, but should only be used as a backstop after good desing, threat modeling, and peer code reviews. This repository runs Github Advanced Security CodeQL scanner to see how well they do with finding what should be very simple OWASP Top 10 vulnerabities.
 3. AI Assistants, such as Github's CoPilot - Most developers have problably used some kind of LLM (ChatGPT, CoPilot) by this point to generate code. I've also used these examples to have CoPilot do a security analysis of simple programs with simple prompts:
     * What security concers are there in this script?
