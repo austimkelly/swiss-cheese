@@ -1,6 +1,8 @@
 # swiss-cheese
 🧀🧀 A demo repository of simple OWASP Top 10 type of vulnerabities in Python. Like swiss-cheese, this code is full of holes 🧀🧀
 
+There are plenty of demo web apps with vulnerabities, this is mean to to provide smaller interactive demonstrations so students can problem specific vulnerabities atomically.
+
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
 ![GitHub Actions](https://github.com/austimkelly/swiss-cheese/workflows/CodeQL/badge.svg)
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
@@ -50,3 +52,8 @@ Follow these steps to install the necessary dependencies for the project:
 * [ssrf](./ssrf/) - Demonstrate a server side request forgery tricking the app to making a call to an not allowed 3rd party domain. See also [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery).
 * [xss](./xss/) - Demonstrates executing arbitraty javascript inside the applicaiton. See also [OWASP Cross Site Scripting](https://owasp.org/www-community/attacks/xss/)
 * [secrets](./secrets/) - An example of leaking a secrets file or environment variable configuration. These should all be caught by [Github Secrets Push Protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations).
+
+# References to other Pythoh vulnerable web apps
+
+* [Pygoat](https://github.com/austimkelly/pygoat - This is a fork of an intentionally vulnerable web app built with Django and Python. The fork enables Github Advanced security (GHAS) features: CodeQL, Secrets Scanning & Dependabot.
+* [Damn Vulnerable Python Web App](https://github.com/austimkelly/dvpwa) - This is also a fork with GHAS enabled.
