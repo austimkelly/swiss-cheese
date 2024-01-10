@@ -1,5 +1,5 @@
 # swiss-cheese
-🧀🧀 A demo repository of simple OWASP Top 10 type of vulnerabities in Python. Like swiss-cheese, this code is full of holes 🧀🧀
+🧀🧀 A demo repository of simple OWASP Top 10 type of vulnerabilities in Python. Like swiss-cheese, this code is full of holes 🧀🧀
 
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
 ![GitHub Actions](https://github.com/austimkelly/swiss-cheese/workflows/CodeQL/badge.svg)
@@ -10,12 +10,16 @@
 
 The code samples here here several purposes:
 
-1. For application security and training developers, it's easier to see an exploitable vulnerability in code that you can actually reproduce. Too many times vulnerabilities are too abstract, not reproducible, or reachable thus making alerts largely ignored _en masse_. Capture the Flag (CTF) exercises great and get developers into the offensive mind-set, but they don't fully help developers understand the coding errors thus improving code review quality on PRs.
+1. For application security and training developers, it's easier to see an exploitable vulnerability in code that you can actually reproduce. Too many times vulnerabilities are too abstract, not reproducible, nor reachable, thus making alerts largely ignored _en masse_. Capture the Flag (CTF) exercises great and get developers into the offensive mind-set, but they don't fully help developers understand the coding errors which in turn improves code review quality on PRs.
 2. Static Application Security Testing (SAST) - SAST tools are notoriously noisy, don't demonstrate reachability, and can't find more complex interactions. SAST tools have their place, but should only be used as a backstop after good design, threat modeling, and peer code reviews. This repository runs Github Advanced Security CodeQL scanner to see how well they do with finding what should be very simple OWASP Top 10 vulnerabilities.
-3. AI Assistants, such as Github's CoPilot - Most developers have likely used some kind of LLM (ChatGPT, CoPilot) by this point to generate code. I've also used these examples to have CoPilot do a security analysis of simple programs with simple prompts:
+3. Using an AI assistant to help with Security analysis where SAST tooling falls short. SAST tools can't find and fix everything, but some basic prompts can help you find and fix vulnerabilities, such as:
     * What security concerns are there in this script?
     * How would you recommend fixing vulnerability X?
-4. Will ChatGPT generate insecure code and testing techniques which is may deem unethical?
+4. Will AI assistants such as ChatGPT & Copilot generate insecure code and testing techniques which it may deem unethical?
+
+## GitHub Advanced Security Exercises
+
+This repository is also used as a training exercise for GitHub Advanced Security (GHAS) features. See [GHAS Exercises](./doc/ghas-exercises.md) for more details.
 
 # Code Authors
 
@@ -43,10 +47,12 @@ Follow these steps to install the necessary dependencies for the project:
 
 # Demo Listing & References
 
-* [broken-auth](./broken-auth/) - Demonstrates a session management vulnerability if an attacker get ahold of an authentication session token. See also [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
-* [idor](./idor/) - Demonstrates broken access control for easily guessable IDs and no authentication. See also [OWASP IDOR](https://owasp.org/www-chapter-ghana/assets/slides/IDOR.pdf).
-* [sqli](./sqli/) - Demonstrates standard SQL Injection being able to dump a database from a form field. See also [OWASP SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection).
-* [ssrf](./ssrf/) - Demonstrate a server-side request forgery tricking the app to making an HTTP request to a not-allowed 3rd party domain. See also [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery).
-* [xss](./xss/) - Demonstrates executing arbitrary javascript inside the application. See also [OWASP Cross Site Scripting](https://owasp.org/www-community/attacks/xss/)
-* [secrets](./secrets/) - An example of leaking a secrets file or environment variable configuration. These should all be caught by [Github Secrets Push Protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations). See also [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html).
-* [supply-chain](./supply-chain/) - An example of a supply chain vulnerability in log4j. This one is to demonstrate dependency vulnerabilities and a security advisory. There are several OWASP Top 10 here: security misconfiguration, using components with known vulnerabilities, insufficient logging and monitoring. See also [OWASP Supply Chain Vulnerabilities](https://owasp.org/www-project-kubernetes-top-ten/2022/en/src/K02-supply-chain-vulnerabilities).
+| **Demo Link** | **Description** | **References** |
+| --- | --- | --- |
+| [broken-auth](./broken-auth/) | Demonstrates a session management vulnerability if an attacker get ahold of an authentication session token. | [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html) |
+| [idor](./idor/) | Demonstrates broken access control for easily guessable IDs and no authentication. | [OWASP IDOR](https://owasp.org/www-chapter-ghana/assets/slides/IDOR.pdf) |
+| [sqli](./sqli/) | Demonstrates standard SQL Injection being able to dump a database from a form field. | [OWASP SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection) |
+| [ssrf](./ssrf/) | Demonstrate a server-side request forgery tricking the app to making an HTTP request to a not-allowed 3rd party domain. | [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery) |
+| [xss](./xss/) | Demonstrates executing arbitrary javascript inside the application. | [OWASP Cross Site Scripting](https://owasp.org/www-community/attacks/xss/) |
+| [secrets](./secrets/) | An example of leaking a secrets file or environment variable configuration. | [Github Secrets Push Protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations), [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) |
+| [supply-chain](./supply-chain/) | An example of a supply chain vulnerability in log4j. This one is to demonstrate dependency vulnerabilities and a security advisory. There are several OWASP Top 10 here: security misconfiguration, using components with known vulnerabilities, insufficient logging and monitoring. | [OWASP Supply Chain Vulnerabilities](https://owasp.org/www-project-kubernetes-top-ten/2022/en/src/K02-supply-chain-vulnerabilities) |
