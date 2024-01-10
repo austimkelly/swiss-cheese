@@ -2,9 +2,9 @@
 🧀🧀 A demo repository of simple OWASP Top 10 type of vulnerabilities in Python. Like swiss-cheese, this code is full of holes 🧀🧀
 
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
-![GitHub Actions](https://github.com/austimkelly/swiss-cheese/workflows/CodeQL/badge.svg)
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
-
+[![CodeQL](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml)
+[![tfsec](https://github.com/austimkelly/swiss-cheese/actions/workflows/tfsec.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/tfsec.yml)
 
 # Purpose
 
