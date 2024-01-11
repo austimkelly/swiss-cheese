@@ -1,4 +1,4 @@
-name: Check Security Features
+name: "Check Security Features"
 
 on:
   workflow_run:
@@ -24,7 +24,7 @@ jobs:
 
       - name: Check Secrets Push Protection
         id: check_secrets_push_protection
-        run: echo "::set-output name=secrets_push_protection_enabled::$(curl -s -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/secret-scanning/alerts | jq '.enabled' && echo 'true' || echo 'false')"
+        run: echo "::set-output name=secrets_push_protection_enabled::$(curl -s -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/secret-scanning/alerts | jq '.alerts[0].enabled' && echo 'true' || echo 'false')"
 
   fail-if-not-enabled:
     needs: check
