@@ -45,7 +45,7 @@ jobs:
           CODE_SCANNING_ANALYSES=$(curl -s -L -H "Accept: application/vnd.github.v3+json" -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/code-scanning/analyses)
           TOOLS=$(echo "$CODE_SCANNING_ANALYSES" | jq -r '[.[] | .tool.name] | unique')
           echo "Tools: $TOOLS"
-          if [[ "$TOOLS" == "[]" || [[ "$TOOLS" == "null" ]]; then
+          if [[ "$TOOLS" == "[]" ]] || [[ "$TOOLS" == "null" ]]; then
             echo "No tools found in Code Scanning Analyses"
             exit 1
           else
