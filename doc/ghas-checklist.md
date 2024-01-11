@@ -32,17 +32,24 @@
 # Code scanning with CodeQL
 
 * [ ] Enable Code scanning - See [Configuring code scanning](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
-* [ ] Review the CodeQL workflow
+* [ ] Review the CodeQL workflow file
+    * [ ] Open [codeql.yml](../.github/workflows/codeql.yml)
+    * [ ] What branches are scanned? - See [Avoiding unnecessary scans of pull requests](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#avoiding-unnecessary-scans-of-pull-requests)
+    * [ ] What languages are scanned? - See [Changing the languages that are analyzed](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)
+    * [ ] What is `autobuild` for in CodeQL? - See [CodeQL for compiled languages](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)
+    * [ ] How often is a full scan performed? - See [Scanning on a schedule](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scanning-on-a-schedule)
 * [ ] Review 3rd party code scanning workflows
-* [ ] Review Code scanning alerts
-    - [ ] Review search facets and filters
-* - Review a single alert
+    * [ ] Check out the [tfsec](../.github/workflows/tfsec.yml) workflow (aka defsec)
+    * [ ] Review the other 3rd party workflows you can add
+* [ ] Review Code scanning alerts list
+    - [ ] Review search facets and filters - See [Managing code scanning alerts for your repository](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
+* - Review a single alert - See [Managing alerts](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository)
     - [ ] Review severity
     - [ ] Review related CVE/CWEs
     - [ ] Review the source of the CodeQL query
     - [ ] Review sources and sink (Show Paths) - Note, not all alerts will have Show Paths.
     - [ ] Follow the sink to the code line(s) and see the Copilot X icon. Can you get advice on how to fix it?
-    - [ ] Note the dismissal options for a Code scanning alert - See [Dismissing code scanning alerts]()
+    - [ ] Note the dismissal options for a Code scanning alert - See [Dismissing code scanning alerts](https://docs.github.com/en/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#dismissing-an-alert-on-your-pull-request)
     - [ ] Review summary, descriptions, fixes and references
     - [ ] Review commit history
 
@@ -56,7 +63,8 @@
 
 # General
 
-* - [ ] Review branch protection rules - See [Managing a branch protection rule](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
-* - [ ] Review repository permissions - [Managing your repositories teams and people](https://docs.github.com/en/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)
-* - [ ] Review Security Overview (Requires Owner or Admin permission on the Org) - See [About the security overview](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)
-* - [ ] Review API for pull GHAS repo info - See [Code Scanning API](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/code-scanning). See also https://github.com/austimkelly/ghas-utils for org-level insights across multiple repos.
+* [ ] Review branch protection rules - See [Managing a branch protection rule](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
+* [ ] Review repository permissions - [Managing your repositories teams and people](https://docs.github.com/en/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)
+* [ ] Review Security Overview (Requires Owner or Admin permission on the Org) - See [About the security overview](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)
+* [ ] Review API for pull GHAS repo info - See [Code Scanning API](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/code-scanning). See also https://github.com/austimkelly/ghas-utils for org-level insights across multiple repos. 
+* Github Actions. There is an action in this repository you can run if you have a personal access token. It will check to see you have all the core GHAS features enabled on the repository. See also [check-ghas-features.yml](../.github/workflows/check-ghas-features.yml) for how to make REST API calls via a Github action.
