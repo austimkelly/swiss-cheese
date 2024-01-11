@@ -13,7 +13,7 @@ jobs:
           echo "Checking if Dependabot is enabled..."
           DEPENDABOT=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/dependabot/alerts)
           echo "Dependabot response: $DEPENDABOT"
-          if [[ "$DEPENDABOT" == *"Not Found"* ]]; then
+          if [[ -z "$DEPENDABOT" ]] || [[ "$DEPENDABOT" == "null" ]]; then
             echo "Dependabot is not enabled"
             exit 1
           else
