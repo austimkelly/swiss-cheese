@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Check Dependabot
         id: check_dependabot
-        run: echo "::set-output name=dependabot_enabled::$(curl -s -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/topics | jq '.names' | grep -q '\"dependabot\"' && echo 'true' || echo 'false')"
+        run: echo "::set-output name=dependabot_enabled::$(curl -s -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/topics | jq '.names' | grep -q 'dependabot' && echo 'true' || echo 'false')"
 
       - name: Check CodeQL Analysis
         id: check_codeql_analysis
