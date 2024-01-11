@@ -3,7 +3,7 @@
 * [ ] Enable Secrets Scanning - See [Configure secrets scan](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)
 * [ ] Enabled Secrets Push Protection - See [Push protection for repositories](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations)
 * [ ] Find & manage secret alerts - See [Manage secret alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning)
-* [ ] Try to push a secret with push protection enabled
+* [ ] Try to push a secret with push protection enabled - See [Using secret as a push protection on the command line](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations#using-secret-scanning-as-a-push-protection-from-the-command-line)
 * [ ] Create a custom secret scanning pattern - [See Define Custom Patterns](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)
 * [ ] Create an exclude pattern for files and folders - See [Excluding directories from secrets scanning alerts for users](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#excluding-directories-from-secret-scanning-alerts-for-users)
 
