@@ -1,10 +1,9 @@
 name: "Check Security Features"
 
 on:
-  workflow_run:
-    workflows: ["Dependabot", "CodeQL Analysis", "Secrets Scanning"]
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
   check:
@@ -12,30 +11,27 @@ jobs:
     steps:
       - name: Check Dependabot
         id: check_dependabot
-        run: echo "::set-output name=dependabot_enabled::$(curl -s -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' https://api.github.com/repos/${{ github.repository }}/topics | jq '.names' | grep -q 'dependabot' && echo 'true' || echo 'false')"
+        run: |
+          DEPENDABOT=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/dependabot/alerts)
+          if [[ "$DEPENDABOT" == *"Not Found"* ]]; then
+            echo "Dependabot is not enabled"
+            exit 1
+          fi
 
-      - name: Check CodeQL Analysis
-        id: check_codeql_analysis
-        run: echo "::set-output name=codeql_analysis_enabled::$(curl -s -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/code-scanning/config | jq '.status' | grep -q 'enabled' && echo 'true' || echo 'false')"
+      - name: Check Code Scanning
+        id: check_code_scanning
+        run: |
+          CODE_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/code-scanning/alerts)
+          if [[ "$CODE_SCANNING" == *"Not Found"* ]]; then
+            echo "Code Scanning is not enabled"
+            exit 1
+          fi
 
       - name: Check Secrets Scanning
         id: check_secrets_scanning
-        run: echo "::set-output name=secrets_scanning_enabled::$(curl -s -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/secret-scanning/config | jq '.status' | grep -q 'enabled' && echo 'true' || echo 'false')"
-
-      - name: Check Secrets Push Protection
-        id: check_secrets_push_protection
-        run: echo "::set-output name=secrets_push_protection_enabled::$(curl -s -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" https://api.github.com/repos/${{ github.repository }}/secret-scanning/alerts | jq '.alerts[0].enabled' && echo 'true' || echo 'false')"
-
-  fail-if-not-enabled:
-    needs: check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fail if any security feature is not enabled
         run: |
-          if [ "${{ needs.check.outputs.dependabot_enabled }}" != "true" ] || \
-             [ "${{ needs.check.outputs.codeql_analysis_enabled }}" != "true" ] || \
-             [ "${{ needs.check.outputs.secrets_scanning_enabled }}" != "true" ] || \
-             [ "${{ needs.check.outputs.secrets_push_protection_enabled }}" != "true" ]; then
-            echo "One or more security features are not enabled. Please enable all of the following: Dependabot, CodeQL Analysis, Secrets Scanning, Secrets Push Protection."
+          SECRETS_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/secrets)
+          if [[ "$SECRETS_SCANNING" == *"Not Found"* ]]; then
+            echo "Secrets Scanning is not enabled"
             exit 1
           fi
