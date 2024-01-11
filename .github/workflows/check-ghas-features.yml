@@ -1,9 +1,7 @@
 name: "Check Security Features"
 
 on:
-  workflow_run:
-    types:
-      - completed
+  workflow_dispatch:
 
 jobs:
   check:
