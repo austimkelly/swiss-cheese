@@ -46,15 +46,15 @@
 
 # Security advisories
 
-* [ ] Create a security advisory
+* [ ] Create a security advisory - See [About Security Advisory](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)
 
 # Security policy
 
-* [ ] Review the security policy
+* [ ] Review the security policy - See [Adding a security policy to your repository](https://docs.github.com/en/enterprise-cloud@latest/code-security/getting-started/adding-a-security-policy-to-your-repository)
 
 # General
 
-* - [ ] Review branch protection rules
-* - [ ] Review repository permissions
-* - [ ] Review Security Overview (Requires Owner or Admin permission on the Org)
-* - [ ] Review API for pull GHAS repo info
+* - [ ] Review branch protection rules - See [Managing a branch protection rule](https://docs.github.com/en/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule)
+* - [ ] Review repository permissions - [Managing your repositories teams and people](https://docs.github.com/en/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)
+* - [ ] Review Security Overview (Requires Owner or Admin permission on the Org) - See [About the security overview](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)
+* - [ ] Review API for pull GHAS repo info - See [Code Scanning API](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/code-scanning). See also https://github.com/austimkelly/ghas-utils for org-level insights across multiple repos.

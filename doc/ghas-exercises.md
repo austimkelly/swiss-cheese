@@ -29,14 +29,13 @@ If you fork this repository in a public account, you will have access to all the
 
 # Configure the settings
 
-Please see [GHAS Exercises](./ghas-checklist.md) for more details on how to configure each of the GHAS features.
+Please see [GHAS Exercises Checklist](./ghas-checklist.md) for more details on how to configure each of the GHAS features. There are numerous links to documentation to help you interact with each security feature.
 
 # Results
 
 If you have the configured everything correctly you should have the same security alerts as the public repository your forked from. The exception is the Security Advisories, where are not copied to a forked repository.
 
 ![GHAS Completed Settings](./img/ghas-fully-configured.png)
-
 
 # References
 
