@@ -22,7 +22,7 @@ If you fork this repository in a public account, you will have access to all the
 
 # Set-up
 
-1. Fork this repository to your own account.
+1. Fork this repository to your own account. **NOTE** Make sure for fork this to your own account and not one part of an enterprise org. Forking to an enterprise org may cause unnecessary security alerts depending on how they are monitored.
 2. Navigate to `https[X]://github.com/{your account id}/swiss-cheese/settings/security_analysis`. You will see the unset security settings:
 
 ![GHAS Settings](./img/empty_security_settings.png)

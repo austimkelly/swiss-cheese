@@ -2,10 +2,12 @@
 
 * [ ] Enable Secrets Scanning - See [Configure secrets scan](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories)
 * [ ] Enabled Secrets Push Protection - See [Push protection for repositories](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations)
+* [ ] Understand the scanning patterns and limitations of secrets scanning and push protection -  See [Push protection limitations](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/troubleshooting-secret-scanning#push-protection-limitations) and [Secret scanning patterns](https://docs.github.com/en/code-security/secret-scanning/secret-scanning-patterns)
 * [ ] Find & manage secret alerts - See [Manage secret alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 * [ ] Try to push a secret with push protection enabled - See [Using secret as a push protection on the command line](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations#using-secret-scanning-as-a-push-protection-from-the-command-line)
-* [ ] Create a custom secret scanning pattern - [See Define Custom Patterns](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning)
+* [ ] Create a custom secret scanning pattern - [See Define Custom Patterns](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning). This requires an enterprise license.
 * [ ] Create an exclude pattern for files and folders - See [Excluding directories from secrets scanning alerts for users](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/configuring-secret-scanning-for-your-repositories#excluding-directories-from-secret-scanning-alerts-for-users)
+
 
 # Dependabot alerts checklist
 
