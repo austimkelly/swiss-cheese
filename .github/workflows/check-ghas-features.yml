@@ -20,31 +20,26 @@ jobs:
             echo "Dependabot is enabled"
           fi
 
-      - name: Check Code Scanning
-        id: check_code_scanning
-        run: |
-          echo "Checking if Code Scanning is enabled..."
-          CODE_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/code-scanning/alerts)
-          echo "Code Scanning response: $CODE_SCANNING"
-          if [[ "$CODE_SCANNING" == *"Not Found"* ]]; then
-            echo "Code Scanning is not enabled"
-            exit 1
-          else
-            echo "Code Scanning is enabled"
-          fi
-
-      - name: Check Secrets Scanning
-        id: check_secrets_scanning
-        run: |
-          echo "Checking if Secrets Scanning is enabled..."
-          SECRETS_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/actions/secrets)
-          echo "Secret Scanning response: $SECRETS_SCANNING"
-          if [[ "$SECRETS_SCANNING" == *"Not Found"* ]]; then
-            echo "Secrets Scanning is not enabled"
-            exit 1
-          else
-            echo "Secrets Scanning is enabled"
-          fi
-
-      - name: Summary
-        run: echo "All checks passed. All required GitHub Advanced Security features are enabled."
+      - name: Check Advanced Security and Secret Scanning
+          id: check_security_features
+            run: |
+              echo "Checking if Advanced Security and Secret Scanning are enabled..."
+              REPO_SETTINGS=$(curl -s -L -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GH_PAT }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/repos/${{ github.repository }})
+              ADVANCED_SECURITY=$(echo "$REPO_SETTINGS" | jq -r '.security_and_analysis.advanced_security.status')
+              SECRET_SCANNING=$(echo "$REPO_SETTINGS" | jq -r '.security_and_analysis.secret_scanning.status')
+              SECRET_SCANNING_PUSH_PROTECTION=$(echo "$REPO_SETTINGS" | jq -r '.security_and_analysis.secret_scanning_push_protection.status')
+              echo "Advanced Security status: $ADVANCED_SECURITY"
+              echo "Secret Scanning status: $SECRET_SCANNING"
+              echo "Secret Scanning Push Protection status: $SECRET_SCANNING_PUSH_PROTECTION"
+              if [[ "$ADVANCED_SECURITY" != "enabled" ]]; then
+                echo "Advanced Security is not enabled"
+                exit 1
+              fi
+              if [[ "$SECRET_SCANNING" != "enabled" ]]; then
+                echo "Secret Scanning is not enabled"
+                exit 1
+              fi
+              if [[ "$SECRET_SCANNING_PUSH_PROTECTION" != "enabled" ]]; then
+                echo "Secret Scanning Push Protection is not enabled"
+                exit 1
+              fi
