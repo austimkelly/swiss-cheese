@@ -1,9 +1,9 @@
 name: "Check Security Features"
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    types:
+      - completed
 
 jobs:
   check:
