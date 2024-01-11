@@ -1,5 +1,5 @@
 # swiss-cheese
-🧀🧀 A demo repository of simple OWASP Top 10 type of vulnerabilities in Python. Like swiss-cheese, this code is full of holes 🧀🧀
+🧀🧀 A demo repository of small OWASP Top 10 vulnerabilities. Like swiss-cheese, this code is full of holes. Goes great with Github Advanced Security 🧀🧀
 
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
@@ -17,9 +17,9 @@ The code samples here here several purposes:
     * How would you recommend fixing vulnerability X?
 4. Will AI assistants such as ChatGPT & Copilot generate insecure code and testing techniques which it may deem unethical?
 
-## GitHub Advanced Security Exercises
+## Github Advanced Security Exercises
 
-This repository is also used as a training exercise for GitHub Advanced Security (GHAS) features. See [GHAS Exercises](./doc/ghas-exercises.md) for more details.
+This repository is also used as a training exercise for Github Advanced Security (GHAS) features. See [GHAS Exercises](./doc/ghas-exercises.md) for more details.
 
 # Code Authors
 

@@ -3,7 +3,7 @@
 This repository massages most of the Github Advanced Security (GHAS) features into a single repository: 
 
 * Dependabot alerts
-* Secrets scanning, 
+* Secrets scanning
 * Code scanning with CodeQL
 * Security advisories
 * Security policy
@@ -29,38 +29,13 @@ If you fork this repository in a public account, you will have access to all the
 
 # Configure the settings
 
-**TODO** This section will need specific tasks and configurations to review. Additional references to Github docs as well.
-
-1. Create security policy
-
-    * TODO
-
-2. Enable Dependabot alerts
-
-    * TODO
-
-3. Enable Code scanning with CodeQL
-
-    * TODO 
-
-4. Enable secret scanning
-
-    * TODO
-
-5. Create a security advisory
-
-    * TODO 
-
-6. Review 
-
-    * TODO
+Please see [GHAS Exercises Checklist](./ghas-checklist.md) for more details on how to configure each of the GHAS features. There are numerous links to documentation to help you interact with each security feature.
 
 # Results
 
 If you have the configured everything correctly you should have the same security alerts as the public repository your forked from. The exception is the Security Advisories, where are not copied to a forked repository.
 
 ![GHAS Completed Settings](./img/ghas-fully-configured.png)
-
 
 # References
 
