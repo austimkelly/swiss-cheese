@@ -10,26 +10,38 @@ jobs:
       - name: Check Dependabot
         id: check_dependabot
         run: |
+          echo "Checking if Dependabot is enabled..."
           DEPENDABOT=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/dependabot/alerts)
           if [[ "$DEPENDABOT" == *"Not Found"* ]]; then
             echo "Dependabot is not enabled"
             exit 1
+          else
+            echo "Dependabot is enabled"
           fi
 
       - name: Check Code Scanning
         id: check_code_scanning
         run: |
+          echo "Checking if Code Scanning is enabled..."
           CODE_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/code-scanning/alerts)
           if [[ "$CODE_SCANNING" == *"Not Found"* ]]; then
             echo "Code Scanning is not enabled"
             exit 1
+          else
+            echo "Code Scanning is enabled"
           fi
 
       - name: Check Secrets Scanning
         id: check_secrets_scanning
         run: |
+          echo "Checking if Secrets Scanning is enabled..."
           SECRETS_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/secrets)
           if [[ "$SECRETS_SCANNING" == *"Not Found"* ]]; then
             echo "Secrets Scanning is not enabled"
             exit 1
+          else
+            echo "Secrets Scanning is enabled"
           fi
+
+      - name: Summary
+        run: echo "All checks passed. All required GitHub Advanced Security features are enabled."
