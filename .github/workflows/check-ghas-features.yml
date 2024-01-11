@@ -1,3 +1,7 @@
+# This workflow is designed to run on demand only.
+# See the repos API for more information: https://docs.github.com/en/rest/repos/repos?apiVersion=2022-11-28
+# A repository secret named GH_PAT is required to run this workflow. It must have the "security_events" read permission.
+# If any check fails, the workflow will exit with a non-zero status.
 name: "Check Security Features"
 
 on:
