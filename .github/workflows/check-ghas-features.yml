@@ -51,3 +51,18 @@ jobs:
           else
             echo "Tools found in Code Scanning Analyses"
           fi
+
+      - name: Final Report
+        run: |
+          if [[ "${{ steps.check_dependabot.outcome }}" == "failure" ]]; then
+            echo "Dependabot check failed"
+          fi
+          if [[ "${{ steps.check_secret_scanning_features.outcome }}" == "failure" ]]; then
+            echo "Security features check failed"
+          fi
+          if [[ "${{ steps.check_code_scanning_analyses.outcome }}" == "failure" ]]; then
+            echo "Code Scanning Analyses check failed"
+          fi
+          if [[ "${{ steps.check_dependabot.outcome }}" == "success" ]] && [[ "${{ steps.check_secret_scanning_features.outcome }}" == "success" ]] && [[ "${{ steps.check_code_scanning_analyses.outcome }}" == "success" ]]; then
+            echo "All checks passed. Good job!"
+          fi
