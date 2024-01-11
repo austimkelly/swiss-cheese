@@ -2,10 +2,6 @@ name: "Check Security Features"
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches:
-      - main
-      - develop
 
 jobs:
   check:
@@ -15,7 +11,7 @@ jobs:
         id: check_dependabot
         run: |
           echo "Checking if Dependabot is enabled..."
-          DEPENDABOT=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/dependabot/alerts)
+          DEPENDABOT=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/dependabot/alerts)
           echo "Dependabot response: $DEPENDABOT"
           if [[ "$DEPENDABOT" == *"Not Found"* ]]; then
             echo "Dependabot is not enabled"
@@ -28,7 +24,7 @@ jobs:
         id: check_code_scanning
         run: |
           echo "Checking if Code Scanning is enabled..."
-          CODE_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/code-scanning/alerts)
+          CODE_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/code-scanning/alerts)
           echo "Code Scanning response: $CODE_SCANNING"
           if [[ "$CODE_SCANNING" == *"Not Found"* ]]; then
             echo "Code Scanning is not enabled"
@@ -41,7 +37,7 @@ jobs:
         id: check_secrets_scanning
         run: |
           echo "Checking if Secrets Scanning is enabled..."
-          SECRETS_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/actions/secrets)
+          SECRETS_SCANNING=$(curl -s -H "Authorization: Bearer ${{ secrets.GH_PAT }}" https://api.github.com/repos/${{ github.repository }}/actions/secrets)
           echo "Secret Scanning response: $SECRETS_SCANNING"
           if [[ "$SECRETS_SCANNING" == *"Not Found"* ]]; then
             echo "Secrets Scanning is not enabled"
