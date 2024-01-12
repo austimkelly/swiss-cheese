@@ -1,6 +1,6 @@
 # Security Policy
 
-This reporistory contains simple vulnerabities based on OWASP Top 10 to teach software developers how to identify security vulnerabities, used GitHub Advanced Security, and ultimately fix them.
+This repository contains simple vulnerabilities based on OWASP Top 10 to teach software developers how to identify security vulnerabilities, used GitHub Advanced Security, and ultimately fix them.
 
 ## Supported Versions
 
@@ -8,9 +8,9 @@ Not applicable
 
 ## Reporting a Vulnerability
 
-There's no need to report a vulnerabity. This code is only meant to run local host for quick atomic exploration of security vulnerabities.
+There's no need to report a vulnerability. This code is only meant to run local host for quick atomic exploration of security vulnerabilities.
 
-Typically this is where you suggest how to log vulnerabities and contact the security team for more questions.
+Typically this is where you suggest how to log vulnerabilities and contact the security team for more questions.
 
 ## Security Best Practices
 

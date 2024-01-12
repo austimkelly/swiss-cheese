@@ -8,18 +8,21 @@
 
 # Purpose
 
-The code samples here here several purposes:
+The code samples here here several a couple of main purposes:
 
-1. For application security and training developers, it's easier to see an exploitable vulnerability in code that you can actually reproduce. Too many times vulnerabilities are too abstract, not reproducible, nor reachable, thus making alerts largely ignored _en masse_. Capture the Flag (CTF) exercises great and get developers into the offensive mind-set, but they don't fully help developers understand the coding errors which in turn improves code review quality on PRs.
-2. Static Application Security Testing (SAST) - SAST tools are notoriously noisy, don't demonstrate reachability, and can't find more complex interactions. SAST tools have their place, but should only be used as a backstop after good design, threat modeling, and peer code reviews. This repository runs Github Advanced Security CodeQL scanner to see how well they do with finding what should be very simple OWASP Top 10 vulnerabilities.
-3. Using an AI assistant to help with Security analysis where SAST tooling falls short. SAST tools can't find and fix everything, but some basic prompts can help you find and fix vulnerabilities, such as:
-    * What security concerns are there in this script?
-    * How would you recommend fixing vulnerability X?
-4. Will AI assistants such as ChatGPT & Copilot generate insecure code and testing techniques which it may deem unethical?
+## Understanding of Secure Coding Practices
+
+1. Show specific hands on examples of OWASP Top 10 vulnerabilities with small "working" code samples.
+2. Demonstrate a specific vulnerability and discuss how a code review might have prevented it. 
+3. Practice fixing vulnerabilities.
+4. Basic understanding of SAST tooling. Specifically using features in Github Advanced Security.
+5. Using an AI coding assistant such as Github Copilot to ask question about code and what security weaknesses may exist. Additionally, AI coding assistants can provide targeted recommendations for fixes. We can also experiment with threat modeling methodologies such as STRIDE and PASTA.
 
 ## Github Advanced Security Exercises
 
 This repository is also used as a training exercise for Github Advanced Security (GHAS) features. See [GHAS Exercises](./doc/ghas-exercises.md) for more details.
+
+In short, you can fork this repository and practice enabling and tuning GHAS features on known vulnerable code and dependencies.
 
 # Code Authors
 
