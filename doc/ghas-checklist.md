@@ -12,10 +12,11 @@
 # Dependabot alerts checklist
 
 * [ ] Enable Dependabot alerts - See [Configuring Dependabot Alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)
-* [ ] Configure Dependabot custom rules
-* [ ] Enable Dependabot Security Updates - See [Configuring Dependabot Security Updates](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates)
-* [ ] Enable Dependabot Grouped Security Updates (Beta)
-* [ ] Configure Dependabot version updates - See [Configuring Dependabot version updates](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates)
+* [ ] Configure Dependabot custom rules - See [Configuration options for the dependabot.yml file](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-the-dependabotyml-file)
+    - [ ] Review options for version updates - See [Version updates example](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file)
+    - [ ] Review options for security updates - See [Security updates example](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#example-dependabotyml-file)
+* [ ] Enable Dependabot Security Updates - See [Configuring dependabot security updates example](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file)
+* [ ] Enable Dependabot Grouped Security Updates (Beta) - See [Configuring Dependabot Grouped Security Updates](https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)
 * [ ] Configure Dependabot Notifications - See [Configure notifications for Dependabot alerts](https://docs.github.com/en/enterprise-cloud@latest/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts)
 * [ ] Review the Dependency Graph and export an SBOM - See [Viewing the Dependency Graph](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#viewing-the-dependency-graph) and [Export dependencies as SBOM](https://docs.github.com/en/enterprise-cloud@latest/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository)
 * [ ] Review Dependabot alerts and review search facets and filters
@@ -38,6 +39,8 @@
     * [ ] What languages are scanned? - See [Changing the languages that are analyzed](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)
     * [ ] What is `autobuild` for in CodeQL? - See [CodeQL for compiled languages](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages)
     * [ ] How often is a full scan performed? - See [Scanning on a schedule](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scanning-on-a-schedule)
+    * Review query packs used - See [Using queries in QL packs](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-queries-in-ql-packs)
+    * Review how to specify directories to scan - See [Specifying directories to scan](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#specifying-directories-to-scan)
 * [ ] Review 3rd party code scanning workflows
     * [ ] Check out the [tfsec](../.github/workflows/tfsec.yml) workflow (aka defsec)
     * [ ] Review the other 3rd party workflows you can add
@@ -67,4 +70,4 @@
 * [ ] Review repository permissions - [Managing your repositories teams and people](https://docs.github.com/en/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)
 * [ ] Review Security Overview (Requires Owner or Admin permission on the Org) - See [About the security overview](https://docs.github.com/en/enterprise-cloud@latest/code-security/security-overview/about-security-overview)
 * [ ] Review API for pull GHAS repo info - See [Code Scanning API](https://docs.github.com/en/enterprise-cloud@latest/rest/reference/code-scanning). See also https://github.com/austimkelly/ghas-utils for org-level insights across multiple repos. 
-* Github Actions. There is an action in this repository you can run if you have a personal access token. It will check to see you have all the core GHAS features enabled on the repository. See also [check-ghas-features.yml](../.github/workflows/check-ghas-features.yml) for how to make REST API calls via a Github action.
+* [ ] Github Action using REST API. There is an action in this repository you can run if you have a personal access token. It will check to see you have all the core GHAS features enabled on the repository. See also [check-ghas-features.yml](../.github/workflows/check-ghas-features.yml) for how to make REST API calls via a Github action.
