@@ -16,16 +16,16 @@ def create_and_populate_database():
     connection.commit()
     connection.close()
 
-def vulnerable_query(username):
-    # Vulnerable code with improperly escaped user input
-    query = "SELECT * FROM users WHERE username = '" + username + "'"
+def safe_query(username):
+    # Use a parameterized query to avoid SQL injection
+    query = "SELECT * FROM users WHERE username = ?"
 
     # Connecting to the database
     connection = sqlite3.connect("example.db")
     cursor = connection.cursor()
 
-    # Executing the vulnerable query
-    cursor.execute(query)
+    # Executing the safe query with the username as a parameter
+    cursor.execute(query, (username,))
 
     # Fetching the results
     results = cursor.fetchall()
@@ -38,9 +38,10 @@ def vulnerable_query(username):
 # Create and populate the database
 create_and_populate_database()
 
-# Test the vulnerable query
-user_input = input("Enter username: ") # Enter:  ' OR '1'='1' -- 
-result = vulnerable_query(user_input)
+# Test the safe query
+user_input = input("Enter username: ")
+result = safe_query(user_input)
 
 # Display the results
 print(result)
+
