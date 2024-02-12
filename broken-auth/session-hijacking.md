@@ -2,7 +2,15 @@ This walkthrough provides a simple demonstration of Session Hijacking - or steal
 
 This demonstration uses the [Flask framework](https://flask.palletsprojects.com/en/3.0.x/), a lightweight web framework for Python. 
 
-## Walkthrough
+## Walkthrough - How to Run this Demo
+
+1. Navigate to the `broken-auth` directory in your terminal and install the required Python packages.
+
+    ```bash
+    pip install Flask
+    ```
+
+    This will install the Flask framework and its dependencies.
 
 1. In the `broken-auth` directory, run the `broken-auth.py` script to start the server.
 
@@ -55,3 +63,37 @@ curl -i -s -k -X $'GET' \
 If you see this message, you successfully got the user's session token:
 
 `Welcome, user1! This is your dashboard.`
+
+# Troubleshooting
+
+## Verify your Python version. 
+
+* This demo was tested with Python 3.9.7. If you are using a different version of Python, you may encounter issues.
+
+`python3 --version`
+
+## jinja2.exceptions.TemplateNotFound index.html
+
+* Make sure you starting the server from the `broken-auth` directory. If you start the server from another directory, Flask may not be able to find the `index.html` file.
+
+## ModuleNotFoundError: No module named 'flask'
+
+* If you encounter this error, you need to install the Flask framework. Run the following command to install Flask:
+
+`pip install Flask`
+
+## Address already in use
+
+* If you see this error, it means that the port is already in use. You can change the port by modifying the `broken-auth.py` file. Change the line `app.run(debug=True)` to `app.run(debug=True, port=8080)`. This will start the server on port 8080.
+
+## Connection refused
+
+* If you see this error, it means that the server is not running. Make sure you start the server by running `python3 broken-auth.py` in the `broken-auth` directory.
+
+## 404 Not Found
+
+* If you see this error, it means that the server is running, but you are trying to access the wrong URL.
+
+## Error Running Server: An attempt was made to access a socket in a way forbidden by its access permissions
+
+* If you see this error, it means that the port is restricted. You can change the port by modifying the `broken-auth.py` file. Change the line `app.run(debug=True)` to `app.run(debug=True, port=8080)`. This will start the server on port 8080.
