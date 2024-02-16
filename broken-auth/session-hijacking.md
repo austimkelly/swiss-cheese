@@ -66,6 +66,7 @@ If you see this message, you successfully got the user's session token:
 
 # Troubleshooting
 
+
 ## Verify your Python version. 
 
 * This demo was tested with Python 3.9.7. If you are using a different version of Python, you may encounter issues.
@@ -74,7 +75,7 @@ If you see this message, you successfully got the user's session token:
 
 ## jinja2.exceptions.TemplateNotFound index.html
 
-* Make sure you starting the server from the `broken-auth` directory. If you start the server from another directory, Flask may not be able to find the `index.html` file.
+* Make sure you starting the server from the `broken-auth` directory. If you start the server from another directory, Flask may not be able to find the `index.html` file. The `tempalates` directory MUST exist!
 
 ## ModuleNotFoundError: No module named 'flask'
 
