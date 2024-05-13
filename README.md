@@ -1,6 +1,8 @@
 # swiss-cheese
 🧀🧀 A demo repository of small OWASP Top 10 vulnerabilities. Like swiss-cheese, this code is full of holes. Goes great with Github Advanced Security 🧀🧀
 
+There are plenty of demo web apps with vulnerabities, this is mean to to provide smaller interactive demonstrations so students can problem specific vulnerabities atomically.
+
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
 [![CodeQL](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml)
@@ -51,6 +53,18 @@ Follow these steps to install the necessary dependencies for the project:
 
 # Demo Listing & References
 
+<<<<<<< develop
+* [idor](./idor/) - Demonstrates broken access control for easily guessable IDs and no authentication. See also [OWASP IDOR](https://owasp.org/www-chapter-ghana/assets/slides/IDOR.pdf).
+* [sqli](./sqli/) - Dmonstrates standard SQL Injection being able to dump a database from a form field. See also [OWASP SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection).
+* [ssrf](./ssrf/) - Demonstrate a server side request forgery tricking the app to making a call to an not allowed 3rd party domain. See also [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery).
+* [xss](./xss/) - Demonstrates executing arbitraty javascript inside the applicaiton. See also [OWASP Cross Site Scripting](https://owasp.org/www-community/attacks/xss/)
+* [secrets](./secrets/) - An example of leaking a secrets file or environment variable configuration. These should all be caught by [Github Secrets Push Protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations).
+
+# References to other Pythoh vulnerable web apps
+
+* [Pygoat](https://github.com/austimkelly/pygoat - This is a fork of an intentionally vulnerable web app built with Django and Python. The fork enables Github Advanced security (GHAS) features: CodeQL, Secrets Scanning & Dependabot.
+* [Damn Vulnerable Python Web App](https://github.com/austimkelly/dvpwa) - This is also a fork with GHAS enabled.
+=======
 | **Demo Link** | **Description** | **References** |
 | --- | --- | --- |
 | [broken-auth](./broken-auth/) | Demonstrates a session management vulnerability if an attacker get ahold of an authentication session token. | [OWASP Session Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html) |
@@ -62,3 +76,4 @@ Follow these steps to install the necessary dependencies for the project:
 | [secrets](./secrets/) | An example of leaking a secrets file or environment variable configuration. | [Github Secrets Push Protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations), [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) |
 | [supply-chain](./supply-chain/) | An example of a supply chain vulnerability in log4j. This one is to demonstrate dependency vulnerabilities and a security advisory. There are several OWASP Top 10 here: security misconfiguration, using components with known vulnerabilities, insufficient logging and monitoring. | [OWASP Supply Chain Vulnerabilities](https://owasp.org/www-project-kubernetes-top-ten/2022/en/src/K02-supply-chain-vulnerabilities) |
 | [iac](./iac-misconfiguration/) | An example of a Terraform misconfiguration. . | [OWASP Security Misconfiguration](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) |
+>>>>>>> main
