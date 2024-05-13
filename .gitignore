@@ -1,6 +1,10 @@
 ._
 .DS_Store
 
+# Java build files
+*.class
+.idea
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -15,13 +15,12 @@ def follow_url():
 def home():
     return '''<h1>SSRF</h1>
                 <br>
-                Usage:
-                    <br><code>http://127.0.0.1:80/follow?url=https://api.github.com/events</code><br>
-                Running:
+                Usage: When the app is running, put in a desired URL to call from the app:
+                    <br><code>http://127.0.0.1:5000/follow?url=https://api.github.com/events</code><br>
+                <p></p>
+                Running: Navigate to the directory containing ssrf.py and run:
                 <br><code>
-                    sudo apt install -y python3-pip
-                    sudo pip3 install flask requests;
-                    FLASK_APP=ssrf.py flask run --host=0.0.0.0 --port=80
+                    python3 ssrf.py
                 </code></br>
     '''
 
