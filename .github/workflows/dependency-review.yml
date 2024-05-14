@@ -7,8 +7,14 @@
 name: 'Dependency Review'
 on: [pull_request]
 
+# ensures only one run of the workflow happens per branch or per run (if not associated with a branch)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
+  pull-requests: write  # so we can write the results back to the PR
 
 jobs:
   dependency-review:
@@ -18,3 +24,10 @@ jobs:
         uses: actions/checkout@v3
       - name: 'Dependency Review'
         uses: actions/dependency-review-action@v3
+        with:
+          fail-on-severity: low
+          comment-summary-in-pr: "on-failure"
+          # Deny specific packages
+          deny-packages: "pkg:pypi/pycrypto"
+          # Deny all copy-left licenses
+          deny-licenses: "GPL-1.0, GPL-2.0, GPL-3.0, AGPL-1.0, AGPL-3.0, LGPL-2.1, LGPL-3.0, MPL-2.0, CDDL-1.0, EPL-1.0"

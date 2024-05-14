@@ -86,6 +86,8 @@ There are two ways to set up CodeQL:
 * [The default setup](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) - This allows you to set up code scanning at scale and will allow GitHub to find the optimal configuration for your repository. You can also [enable the default set up at scale](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale) for you organization. 
 * [Configuring the advanced setup for code scanning](https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) allow you to configure the CodeQL analysis workflow yourself. You will need to add a `.github/workflows/codeql-analysis.yml` file to each an every repository to enable this. If you do leverage the advanced setup, you will want to be familiar with all the topics found under [customizing your advanced setup for code scanning](https://docs.github.com/en/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#defining-the-severities-causing-pull-request-check-failure). 
 
+See [codeql-config.yml](./.github/workflows/codeql.yml) for an example of a CodeQL configuration file in this repository.
+
 > Leveraging a [reusable workflow](https://docs.github.com/en/actions/using-workflows/reusing-workflows) is a good way to enable CodeQL at scale if you do want to use the advanced setup. For an example of what a reusable workflow looks like for CodeQL, see https://github.com/actions/reusable-workflows/blob/main/.github/workflows/codeql-analysis.yml. This will allow you to keep the workflow configuration managed in a single location.
 
 > GitHub does not support creating CodeQL configuration files dynamically. There is a project called [evergreen](https://github.com/github/evergreen) that is going in that direction, but keeping custom yaml configurations up-to-date is still a manual process or requires custom tooling.
@@ -104,19 +106,55 @@ There are multiple options for filtering, dismissing, reviewing, and fixing aler
 
 # Dependabot
 
+Dependabot is a vulnerability scanning and dependency update tool that runs outside the normal commit and pull request cycle. While Dependabot will create alerts for vulnerabilities, it will not block commits or pull requests like Code Scanning or Secrets Push Protection.
+
+> If you want additional protection of blocking PRs on vulnerabilities or disallowed licenses, see the Dependency Review section below.
+
 ## Enabling Dependabot
+
+You can enable Dependabot at the repository level under **Settings** > **Security & Analysis** > **Code Scanning** > **Dependabot alerts**. You can also enable Dependabot at the organization level under **Settings** > **Security & Analysis** > **Code Scanning** > **Dependabot alerts**.
+
+If you are new to Dependabot, I suggest reading the [Dependabot Quickstart Guide](https://docs.github.com/en/code-security/getting-started/dependabot-quickstart-guide).
 
 ## Enabling Dependabot Version Updates
 
+In order to [configure Dependabot version updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates) you will need to create a `.github/dependabot.yml` file in the repository. This file will allow you to configure the version updates for your dependencies. For an example of `pip` and `maven` package manager checks see the [dependabot.yml](./.github/dependabot.yml) file in this repository.
+
+See also [About dependabot version updates](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates) for ecosystem support details.
+
+## Dependabot Features
+
+* [Dependabot alerts](https://docs.github.com/en/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) - Review the documentation for Dependabot Alerts and frequency of pull requests.
+* **Dependency Graph** - The [dependency graph](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph) has 3 main components for viewing your dependencies:
+    * **[Dependencies view](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependencies-view)** - This shows you all the currently found dependencies and known licenses.
+    * **[Dependents View](https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#dependents-view)** - Shows you how the repository is being used my other repositories.
+    * **Dependabot** - This view show you the specific package managers being scanned and details on recent job updates. 
+
+> NOTE: The reported licenses are only as good as the package repositories are that report this. It very common for licenses to be misreported or not reported at all.
+
 # Third Party Code Scanning
+
+The [GitHub marketplace](https://github.com/marketplace) has thousands of third-party actions that can be explored to augment your development and security workflows. You can [filter on the security category](https://github.com/marketplace?category=security&copilot_app=false&query=&type=&verification=) to explore tools that you might already be using that you can integrate into your existing workflow.
+
+The following sections are tools that I've found useful and are demoed as part of this repository.
 
 ## Trivy IaC Scanning
 
+An example of scanning Terraform is provided in the [trivy-config.yml](./.github/workflows/trivy-config.yml) file. This workflow will scan the Terraform code in the repository for vulnerabilities.
+
+The [Trivy Action](https://github.com/aquasecurity/trivy-action) can be configured to scan IaC files as well as Docker images for OS-level library vulnerabilities.
+
 ## Dependency Review (by GitHub)
 
-# Re-usable Workflows
+The [dependency review action](https://github.com/actions/dependency-review-action) allows you to scan changed manifest files for dependencies with vulnerabilities, forbidden packages, and forbidden licenses.
+
+This can be useful if you want to be able to block PRs for critical issues. This can be a good shift-left solution where Dependabot won't block existing vulnerabilities from being merged.
+
+Additionally, this is the only solution I'm aware of that will reasonably block known OSS licenses. This can be useful if you have a policy that requires certain licenses to be used in your code base.
 
 # Security Overview (Reporting)
+
+
 
 ## Enterprise Security Overview
 
