@@ -7,6 +7,7 @@ app = Flask(__name__)
 def follow_url():
     url = request.args.get('url', '')
     if url:
+        # SSRF - Will CodeQL flag it in a new PR when it already exists as an alert?
         return requests.get(url).text
 
     return "No URL parameter provided."
