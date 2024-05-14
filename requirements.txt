@@ -1,5 +1,5 @@
 Flask==3.0.0
-requests==2.25.1
+requests==2.31.0
 datetime==4.3
 pysqlite3==0.4.6
-Werkzeug==2.2.2
+Werkzeug==3.0.3
