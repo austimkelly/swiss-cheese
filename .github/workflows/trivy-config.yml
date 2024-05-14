@@ -1,0 +1,31 @@
+# This workflow runs the Trivy in IaC mode.
+# The action itself can be found here: https://github.com/aquasecurity/trivy-action
+# The documentation for running Trivy in config mode can be found here: https://aquasecurity.github.io/trivy/v0.19.2/usage/vuln-type/config/   
+# Note: If you have run Tfsec in the past, the Trivy Config scan is the result of the Aquasec acquisition of Tfsec: https://www.aquasec.com/news/aqua-security-acquires-tfsec/
+name: Trivy IaC Scan
+
+on: [pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Run Trivy IaC Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          severity: "HIGH,CRITICAL"
+          scan-type: "config"
+          hide-progress: false
+          format: "sarif"
+          output: "trivy-results.sarif"
+          ignore-unfixed: true
+          vuln-type: config
+
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: "trivy-results.sarif"

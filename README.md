@@ -7,6 +7,7 @@ There are plenty of demo web apps with vulnerabities, this is mean to to provide
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
 [![CodeQL](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml)
 [![tfsec](https://github.com/austimkelly/swiss-cheese/actions/workflows/tfsec.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/tfsec.yml)
+[![Trivy IaC Scan](https://github.com/austimkelly/swiss-cheese/actions/workflows/trivy-config.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/trivy-config.yml)
 
 # Purpose
 
