@@ -1,13 +1,17 @@
 # swiss-cheese
-🧀🧀 A demo repository of small OWASP Top 10 vulnerabilities. Like swiss-cheese, this code is full of holes. Goes great with Github Advanced Security 🧀🧀
+🧀🧀 A demo repository of small OWASP Top 10 vulnerabilities (and then some). Like swiss-cheese, this code is full of holes. Goes great with Github Advanced Security 🧀🧀
 
-There are plenty of demo web apps with vulnerabities, this is mean to to provide smaller interactive demonstrations so students can problem specific vulnerabities atomically.
+There are plenty of demo web apps with vulnerabilities, this is mean to to provide smaller interactive demonstrations so students can problem specific vulnerabilities atomically.
 
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
 [![CodeQL](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/codeql.yml)
 [![tfsec](https://github.com/austimkelly/swiss-cheese/actions/workflows/tfsec.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/tfsec.yml)
 [![Trivy IaC Scan](https://github.com/austimkelly/swiss-cheese/actions/workflows/trivy-config.yml/badge.svg)](https://github.com/austimkelly/swiss-cheese/actions/workflows/trivy-config.yml)
+
+# Github Advanced Security Walkthrough
+
+For a walkthrough of the essential features of GHAS, see [GHAS Walkthrouhg](./ghas-walkthrough.md).
 
 # Purpose
 
