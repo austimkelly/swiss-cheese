@@ -25,6 +25,7 @@ Consider the sections below as a simple lab walkthrough of the various features 
     - [Organization Security Overview](#organization-security-overview)
     - [Repository Security Overview](#repository-security-overview)
 
+
 # Setting up GHAS on this repository
 
 In order to run through the features, simply fork this repository and enable the features you want to test. For quick testing you can fork this on your personal account and keep the visibility public. Most GHAS features are free for public repositories.
