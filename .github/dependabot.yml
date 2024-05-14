@@ -8,6 +8,15 @@ updates:
   # https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-dependabotyml
   - package-ecosystem: "pip" # See documentation for possible values
     directory: "/" # Location of package manifests
+    labels:
+      - "pip_dependency"
     schedule:
       interval: "weekly"
-  
+
+  # Maven configuration
+  - package-ecosystem: "maven"
+    directory: "/supply-chain/vulnerable-application"
+    labels:
+      - "maven_dependency"
+    schedule:
+      interval: "weekly"

@@ -13,6 +13,11 @@ on:
   schedule:
     - cron: '18 22 * * 3'
 
+# ensures only one run of the workflow happens per branch or per run (if not associated with a branch)
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
 jobs:
   tfsec:
     name: Run tfsec sarif report
