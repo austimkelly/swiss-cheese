@@ -4,7 +4,11 @@
 # Note: If you have run Tfsec in the past, the Trivy Config scan is the result of the Aquasec acquisition of Tfsec: https://www.aquasec.com/news/aqua-security-acquires-tfsec/
 name: Trivy IaC Scan
 
-on: [pull_request]
+on: 
+  pull_request:
+  push:
+    branches: ["main"]
+
 
 jobs:
   build:
