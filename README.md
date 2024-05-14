@@ -1,7 +1,7 @@
 # swiss-cheese
-🧀🧀 A demo repository of small OWASP Top 10 vulnerabilities (and then some). Like swiss-cheese, this code is full of holes. Goes great with Github Advanced Security 🧀🧀
+🧀🧀 A demo repository of small OWASP Top 10 vulnerabilities (and then some). Like swiss-cheese, this code is full of holes. Goes great with Github Advanced Security (GHAS) 🧀🧀
 
-There are plenty of demo web apps with vulnerabilities, this is mean to to provide smaller interactive demonstrations so students can problem specific vulnerabilities atomically.
+There are plenty of demo web apps with vulnerabilities, this is meant to to provide smaller interactive demonstrations so students can problem specific vulnerabilities atomically.
 
 ![License](https://img.shields.io/github/license/austimkelly/swiss-cheese.svg) 
 ![Python 3](https://img.shields.io/badge/python-3-blue.svg)
@@ -15,7 +15,11 @@ For a walkthrough of the essential features of GHAS, see [GHAS Walkthrouhg](./gh
 
 # Purpose
 
-The code samples here here several a couple of main purposes:
+The code samples here serve a couple of main purposes:
+
+1. An understanding of secure coding practices with some very basic python examples of OWASP Top 10 vulnerabilities.
+1. A training exercise for Github Advanced Security (GHAS) features.
+
 
 ## Understanding of Secure Coding Practices
 
@@ -65,10 +69,10 @@ Follow these steps to install the necessary dependencies for the project:
 | [idor](./idor/) | Demonstrates broken access control for easily guessable IDs and no authentication. | [OWASP IDOR](https://owasp.org/www-chapter-ghana/assets/slides/IDOR.pdf) |
 | [sqli](./sqli/) | Demonstrates standard SQL Injection being able to dump a database from a form field. | [OWASP SQL Injection](https://owasp.org/www-community/attacks/SQL_Injection) |
 | [command-injection](./command-injection/) | Demonstrates a basic input to a python script that allows a user to send arbitrary shell commands through the terminal. | [OWASP Command Injection](https://owasp.org/www-community/attacks/Command_Injection) |
-| [ssrf](./ssrf/) | Demonstrate a server-side request forgery tricking the app to making an HTTP request to a not-allowed 3rd party domain. | [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery) |
+| [ssrf](./ssrf/) | Demonstrate a server-side request forgery tricking the app into making an HTTP request to a not-allowed 3rd party domain. | [OWASP Server Side Request Forgery](https://owasp.org/www-community/attacks/Server_Side_Request_Forgery) |
 | [xss](./xss/) | Demonstrates executing arbitrary javascript inside the application. | [OWASP Cross Site Scripting](https://owasp.org/www-community/attacks/xss/) |
 | [secrets](./secrets/) | An example of leaking a secrets file or environment variable configuration. | [Github Secrets Push Protection](https://docs.github.com/en/enterprise-cloud@latest/code-security/secret-scanning/push-protection-for-repositories-and-organizations), [OWASP Secrets Management Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Secrets_Management_Cheat_Sheet.html) |
-| [supply-chain](./supply-chain/) | An example of a supply chain vulnerability in log4j. This one is to demonstrate dependency vulnerabilities and a security advisory. There are several OWASP Top 10 here: security misconfiguration, using components with known vulnerabilities, insufficient logging and monitoring. | [OWASP Supply Chain Vulnerabilities](https://owasp.org/www-project-kubernetes-top-ten/2022/en/src/K02-supply-chain-vulnerabilities) |
+| [supply-chain](./supply-chain/) | An example of a supply chain vulnerability in log4j. This one is to demonstrate dependency vulnerabilities and a security advisory. There are several OWASP Top 10 vulnerabilities here: security misconfiguration, using components with known vulnerabilities, insufficient logging and monitoring. | [OWASP Supply Chain Vulnerabilities](https://owasp.org/www-project-kubernetes-top-ten/2022/en/src/K02-supply-chain-vulnerabilities) |
 | [iac](./iac-misconfiguration/) | An example of a Terraform misconfiguration. | [OWASP Security Misconfiguration](https://owasp.org/Top10/A05_2021-Security_Misconfiguration/) |
 
 # References to other Python vulnerable web apps
