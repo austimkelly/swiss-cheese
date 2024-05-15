@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "my-rule" {
 }
 
 resource "aws_alb_listener" "my-alb-listener" {
-  port     = "80"
+  port     = "8080"
   protocol = "HTTP"
 }
 
@@ -42,7 +42,7 @@ resource "aws_api_gateway_domain_name" "outdated_security_policy" {
 }
 
 resource "aws_api_gateway_domain_name" "valid_security_policy" {
-  security_policy = "TLS_1_2"
+  security_policy = "TLS_1_1"
 }
 
 #tfsec:ignore:AWS092
