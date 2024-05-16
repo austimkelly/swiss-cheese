@@ -5,7 +5,7 @@ resource "aws_security_group_rule" "my-rule" {
 }
 
 resource "aws_alb_listener" "my-alb-listener" {
-  port     = "80"
+  port     = "8080"
   protocol = "HTTP"
 }
 
@@ -15,7 +15,7 @@ resource "aws_db_security_group" "my-group" {
 
 resource "aws_instance" "bad_user_data" {
   user_data = <<EOF
-DB_PASSWORD = "Some passwprkd"
+DB_PASSWORD = "Some passwprkd2"
 EOF
 }
 
@@ -42,13 +42,13 @@ resource "aws_api_gateway_domain_name" "outdated_security_policy" {
 }
 
 resource "aws_api_gateway_domain_name" "valid_security_policy" {
-  security_policy = "TLS_1_2"
+  security_policy = "TLS_1_1"
 }
 
 #tfsec:ignore:AWS092
 resource "aws_dynamodb_table" "bad_example" {
   name             = "example"
-  hash_key         = "TestTableHashKey"
+  hash_key         = "TestTableHashKey2"
   billing_mode     = "PAY_PER_REQUEST"
   stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"
